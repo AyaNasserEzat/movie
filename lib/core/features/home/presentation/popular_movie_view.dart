@@ -16,8 +16,8 @@ class PopularMovieView extends StatelessWidget {
       create: (context) => PopularMovieCubit()..getPopularMovie(),
       child: Scaffold(
         extendBodyBehindAppBar: true,
-        appBar:buildAppBar("popular movie", context),
-        body:PopularMoveBody()
+        appBar: buildAppBar("popular movie", context),
+        body: PopularMoveBody(),
       ),
     );
   }

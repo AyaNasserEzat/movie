@@ -1,4 +1,3 @@
-
 import 'package:equatable/equatable.dart';
 import 'package:movies/core/features/home/domain/entitiy/movie_entity.dart';
 

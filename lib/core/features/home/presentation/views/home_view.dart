@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/custom_row.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/film_image.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/popular_list_view.dart';
+import 'package:movies/core/features/home/presentation/views/widgets/top_rated_list.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -29,7 +30,7 @@ class HomeView extends StatelessWidget {
                 context.push("/topRated");
               },
             ),
-            PopularListView(),
+            TopRatedList(),
           ],
         ),
       ),

@@ -1,49 +1,66 @@
 
+
 import 'package:movies/core/features/home/domain/entitiy/movie_entity.dart';
 
 class MovieModel extends MovieEntity {
-  const MovieModel({
-    required super.backdropPath,
-    required super.genreIds,
+  final bool adult;
+final List<int> genreIds;
+  final String originalLanguage;
+  final String originalTitle;
+  final bool video;
+  
+  final int voteCount;
+
+  MovieModel({
     required super.id,
-    required super.originalTitle,
+    required this.adult,
+    required super.backdropPath,
+    required this.genreIds,
+    required this.originalLanguage,
+    required this.originalTitle,
     required super.overview,
     required super.popularity,
     required super.posterPath,
     required super.releaseDate,
     required super.title,
+    required this.video,
     required super.voteAverage,
-    required super.voteCount,
+    required this.voteCount,
   });
 
   factory MovieModel.fromJson(Map<String, dynamic> json) {
     return MovieModel(
-      backdropPath: json['backdrop_path'] ?? '',
+      id: json['id'],
+      adult: json['adult'] ?? false,
+      backdropPath: json['backdrop_path']?? '',
       genreIds: List<int>.from(json['genre_ids'] ?? []),
-      id: json['id'] ?? 0,
+      originalLanguage: json['original_language'] ?? '',
       originalTitle: json['original_title'] ?? '',
       overview: json['overview'] ?? '',
-      popularity: (json['popularity'] ?? 0).toDouble(),
-      posterPath: json['poster_path'] ?? '',
+      popularity: (json['popularity'] as num?)?.toDouble() ?? 0.0,
+      posterPath: json['poster_path']??"",
       releaseDate: json['release_date'] ?? '',
       title: json['title'] ?? '',
-      voteAverage: (json['vote_average'] ?? 0).toDouble(),
+      video: json['video'] ?? false,
+      voteAverage: (json['vote_average'] as num?)?.toDouble() ?? 0.0,
       voteCount: json['vote_count'] ?? 0,
     );
   }
 
-  
   Map<String, dynamic> toJson() {
     return {
+      'id': id,
+      'adult': adult,
       'backdrop_path': backdropPath,
       'genre_ids': genreIds,
-      'id': id,
+      'original_language': originalLanguage,
       'original_title': originalTitle,
       'overview': overview,
       'popularity': popularity,
       'poster_path': posterPath,
       'release_date': releaseDate,
       'title': title,
+      'video': video,
       'vote_average': voteAverage,
       'vote_count': voteCount,
     };

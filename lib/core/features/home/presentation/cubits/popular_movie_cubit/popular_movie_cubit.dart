@@ -10,6 +10,7 @@ import 'package:movies/core/features/home/presentation/cubits/popular_movie_cubi
 class PopularMovieCubit extends Cubit<PopularMovieState> {
   PopularMovieCubit() : super(PopularMovieInitial());
   getPopularMovie() async {
+    emit(PopularMovieLoading());
     final res =
         await PopularMovieUsecase(
           movieRepo: MovieRepoImp(

@@ -7,8 +7,7 @@ class PopularMovieUsecase {
   final MovieRepo movieRepo;
 
   PopularMovieUsecase({required this.movieRepo});
-Future<Either<Failure,List<MovieEntity>>>  call(){
+  Future<Either<Failure, List<MovieEntity>>> call() {
     return movieRepo.getPopularMovie();
   }
-
 }
