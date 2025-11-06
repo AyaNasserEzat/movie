@@ -1,4 +1,6 @@
-class MovieEntity {
+import 'package:equatable/equatable.dart';
+
+class MovieEntity extends Equatable{
   final String backdropPath;
   // final List<int> genreIds;
   final int id;
@@ -24,4 +26,15 @@ class MovieEntity {
     required this.voteAverage,
     // required this.voteCount,
   });
+  
+  @override
+  // TODO: implement props
+  List<Object?> get props => [backdropPath,
+    id,
+    overview,
+    popularity,
+    posterPath,
+    releaseDate,
+    title,
+    voteAverage,];
 }

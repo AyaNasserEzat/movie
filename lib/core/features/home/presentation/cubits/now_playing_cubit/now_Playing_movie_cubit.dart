@@ -9,16 +9,12 @@ import 'package:movies/core/features/home/domain/use_case/now_playing_use_case.d
 import 'package:movies/core/features/home/presentation/cubits/now_playing_cubit/now_playing_move_state.dart';
 
 class NowPlayingMovieCubit extends Cubit<NowPlayingMovieState> {
-  NowPlayingMovieCubit() : super(NowPlayingMovieInitial());
+  NowPlayingMovieCubit(this.nowPlayingUseCase) : super(NowPlayingMovieInitial());
+  final NowPlayingUseCase nowPlayingUseCase;
   getNowPlayingMovie() async {
+    emit(NowPlayingMovieLoading());
     final res =
-        await NowPlayingUseCase(
-          movieRepo: MovieRepoImp(
-            movieRemoteDataSource: MovieRemoteDataSourceImp(
-              api: DioConcumer(dio: Dio()),
-            ),
-          ),
-        ).call();
+        await nowPlayingUseCase.call();
     res.fold(
       (failure) => emit(NowPlayingMovieFailure(failure.errorMessage)),
       (movie) => emit(NowPlayingMovieSuccess(movie)),

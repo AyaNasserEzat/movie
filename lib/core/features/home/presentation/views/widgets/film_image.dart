@@ -1,6 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies/core/database/api/dio_concumer.dart';
+import 'package:movies/core/features/home/data/data_source/remote_data_source/movie_remote_data_source.dart';
+import 'package:movies/core/features/home/data/repo/movie_repo_imp.dart';
+import 'package:movies/core/features/home/domain/use_case/now_playing_use_case.dart';
 import 'package:movies/core/features/home/presentation/cubits/now_playing_cubit/now_Playing_movie_cubit.dart';
 import 'package:movies/core/features/home/presentation/cubits/now_playing_cubit/now_playing_move_state.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/custom_stack.dart';
@@ -12,7 +17,15 @@ class FilmImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NowPlayingMovieCubit()..getNowPlayingMovie(),
+      create: (context) => NowPlayingMovieCubit(
+        NowPlayingUseCase(
+          movieRepo: MovieRepoImp(
+            movieRemoteDataSource: MovieRemoteDataSourceImp(
+              api: DioConcumer(dio: Dio()),
+            ),
+          ),
+        )
+      )..getNowPlayingMovie(),
       child: BlocBuilder<NowPlayingMovieCubit, NowPlayingMovieState>(
         builder: (context, state) {
           // تحديد الحالة

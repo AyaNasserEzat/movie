@@ -44,13 +44,19 @@ dependencies:
   carousel_slider: ^5.1.1
   skeletonizer: ^1.4.3
   get_it: ^8.2.0
+  
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mockito: ^5.5.1
-  build_runner: ^2.10.1  
+  bloc_test: ^10.0.0   
+  # mockito: ^5.5.1
+  mockito: ^5.4.4
+  # build_runner: ^2.10.1 
+  build_runner: ^2.7.1
+
+  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
