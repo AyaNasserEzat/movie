@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movies/core/features/home/domain/use_case/now_playing_use_case.dart';
 import 'package:movies/core/features/home/presentation/cubits/now_playing_cubit/now_Playing_movie_cubit.dart';
+import 'package:movies/core/features/home/presentation/cubits/popular_movie_cubit/popular_movie_cubit.dart';
+import 'package:movies/core/features/home/presentation/cubits/top_rated_cubit/top_rated_cubit.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/custom_row.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/film_image.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/popular_list_view.dart';
@@ -31,14 +33,18 @@ class HomeView extends StatelessWidget {
                 context.push("/popular");
               },
             ),
-            PopularListView(),
+            BlocProvider(
+                   create: (context) => PopularMovieCubit()..getPopularMovie(),
+              child: PopularListView()),
             CustomRow(
               text: "Top Rated",
               ontap: () {
                 context.push("/topRated");
               },
             ),
-            TopRatedList(),
+            BlocProvider(
+                 create: (context) => TopRatedMovieCubit()..getTopRatedMovie(),
+              child: TopRatedList()),
           ],
         ),
       ),
