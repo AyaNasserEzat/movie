@@ -8,17 +8,12 @@ import 'package:movies/core/features/home/domain/use_case/popular_movie_usecase.
 import 'package:movies/core/features/home/presentation/cubits/popular_movie_cubit/popular_movie_state.dart';
 
 class PopularMovieCubit extends Cubit<PopularMovieState> {
-  PopularMovieCubit() : super(PopularMovieInitial());
+  PopularMovieCubit(this.popularMovieUsecase) : super(PopularMovieInitial());
+  final PopularMovieUsecase popularMovieUsecase;
   getPopularMovie() async {
     emit(PopularMovieLoading());
     final res =
-        await PopularMovieUsecase(
-          movieRepo: MovieRepoImp(
-            movieRemoteDataSource: MovieRemoteDataSourceImp(
-              api: DioConcumer(dio: Dio()),
-            ),
-          ),
-        ).call();
+        await popularMovieUsecase.call();
     res.fold(
       (failure) => emit(PopularMovieFailure(failure.errorMessage)),
       (movie) => emit(PopularMovieSuccess(movie)),

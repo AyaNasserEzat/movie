@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movies/core/features/home/presentation/views/widgets/film_img_skeletonizer.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/film_item_comtainer_skeletonizer.dart';
 
 class ListViewLoading extends StatelessWidget {
