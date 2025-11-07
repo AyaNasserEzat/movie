@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:movies/core/features/home/domain/entitiy/movie_details_entity.dart';
 import 'package:movies/core/features/home/presentation/cubits/movie_details_cubit/movie_details_cubit.dart';
 import 'package:movies/core/features/home/presentation/cubits/movie_details_cubit/movie_details_state.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/movie_datils_section.dart';

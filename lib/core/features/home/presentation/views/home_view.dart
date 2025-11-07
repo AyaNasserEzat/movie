@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movies/core/features/home/domain/use_case/now_playing_use_case.dart';
+import 'package:movies/core/features/home/presentation/cubits/now_playing_cubit/now_Playing_movie_cubit.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/custom_row.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/film_image.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/popular_list_view.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/top_rated_list.dart';
+import 'package:movies/core/servieces/serviec_locator.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -15,7 +19,11 @@ class HomeView extends StatelessWidget {
         child: Column(
           spacing: 10,
           children: [
-            FilmImage(),
+            BlocProvider(
+                    create: (context) => NowPlayingMovieCubit(
+        sl<NowPlayingUseCase>()
+      )..getNowPlayingMovie(),
+              child: FilmImage()),
             SizedBox(height: 10),
             CustomRow(
               text: "Popular",

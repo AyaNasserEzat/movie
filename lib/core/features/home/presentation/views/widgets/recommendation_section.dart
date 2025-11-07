@@ -4,7 +4,6 @@ import 'package:movies/core/contstant/app_color.dart';
 import 'package:movies/core/features/home/presentation/cubits/get_similar-movie/similar_movie_cubit.dart';
 import 'package:movies/core/features/home/presentation/cubits/get_similar-movie/similar_movie_state.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/custom_grid_view.dart';
-import 'package:movies/core/features/home/presentation/views/widgets/custom_image_container.dart';
 
 class RecommendationSection extends StatelessWidget {
   const RecommendationSection({super.key, required this.id});
