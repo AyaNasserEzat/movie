@@ -25,7 +25,7 @@ class MovieRepoImp extends MovieRepo {
   @override
   Future<Either<Failure, List<MovieEntity>>> getTopRatedMovie() async {
     try {
-      List<MovieEntity> res = await movieRemoteDataSource.getNowPlaying();
+      List<MovieEntity> res = await movieRemoteDataSource.getTopRated();
       return right(res);
     } on ServerException catch (e) {
       return left(Failure(errorMessage: e.errorModel.errorMessage));
