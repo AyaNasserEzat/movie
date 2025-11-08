@@ -1,12 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:movies/core/errors/failure.dart';
 import 'package:movies/core/features/home/domain/entitiy/movie_entity.dart';
 import 'package:movies/core/features/home/domain/repo/movie_repo.dart';
 import 'package:movies/core/features/home/domain/use_case/top_rated_use_case.dart';
-@GenerateMocks([MovieRepo])
+
 import "now_playing_use_case_test.mocks.dart";
 void main() {
   late MovieRepo movieRepo;
