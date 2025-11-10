@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 import 'package:movies/core/features/home/data/models/movie_model.dart';
+import 'package:movies/core/features/home/domain/entitiy/movie_entity.dart';
 
 
 abstract class SimilarMovieState extends Equatable {
@@ -15,7 +16,7 @@ class SimilarMoviesInitial extends SimilarMovieState {}
 class SimilarMoviesInitialLoading extends SimilarMovieState {}
 
 class SimilarMoviesInitialSuccess extends SimilarMovieState {
-  final List<MovieModel> movies;
+  final List<MovieEntity> movies;
 
   const SimilarMoviesInitialSuccess(this.movies);
 

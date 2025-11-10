@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/core/contstant/app_color.dart';
+import 'package:movies/core/features/home/domain/use_case/get_similar_movies.dart';
 import 'package:movies/core/features/home/presentation/cubits/get_similar-movie/similar_movie_cubit.dart';
 import 'package:movies/core/features/home/presentation/cubits/get_similar-movie/similar_movie_state.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/custom_grid_view.dart';
+import 'package:movies/core/servieces/serviec_locator.dart';
 
 class RecommendationSection extends StatelessWidget {
   const RecommendationSection({super.key, required this.id});
@@ -13,7 +15,7 @@ final int id;
     return BlocProvider(
   
       create: (BuildContext context) { 
-        return SimilarMovieCubit()..getSimilarMovies(id);
+        return SimilarMovieCubit(sl<GetSimilarMoviesUseCase>())..getSimilarMovies(id);
        },
       child: Padding(
         padding: const EdgeInsets.only(left: 8.0, right: 8),

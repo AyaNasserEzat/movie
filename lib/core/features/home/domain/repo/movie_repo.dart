@@ -9,6 +9,6 @@ abstract class MovieRepo {
   Future<Either<Failure, List<MovieEntity>>> getTopRatedMovie();
   Future<Either<Failure, List<MovieEntity>>> getNowPlayingdMovie();
    Future<Either<Failure, MovieDetailModel>>   getDetailsMovie(int id);
-    Future<Either<Failure, List<MovieModel>>>   getSimilarMovies(int id);
-       Future<Either<Failure, List<MovieModel>>>   searchMovies(String movie);
+    Future<Either<Failure, List<MovieEntity>>>   getSimilarMovies(int id);
+       Future<Either<Failure, List<MovieEntity>>>   searchMovies(String movie);
 }

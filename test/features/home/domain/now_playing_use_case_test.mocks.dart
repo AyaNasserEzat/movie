@@ -10,7 +10,6 @@ import 'package:mockito/mockito.dart' as _i1;
 import 'package:movies/core/errors/failure.dart' as _i5;
 import 'package:movies/core/features/home/data/models/movie_detail_model/movie_detail_model.dart'
     as _i7;
-import 'package:movies/core/features/home/data/models/movie_model.dart' as _i8;
 import 'package:movies/core/features/home/domain/entitiy/movie_entity.dart'
     as _i6;
 import 'package:movies/core/features/home/domain/repo/movie_repo.dart' as _i3;
@@ -107,34 +106,36 @@ class MockMovieRepo extends _i1.Mock implements _i3.MovieRepo {
           as _i4.Future<_i2.Either<_i5.Failure, _i7.MovieDetailModel>>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i8.MovieModel>>> getSimilarMovies(
+  _i4.Future<_i2.Either<_i5.Failure, List<_i6.MovieEntity>>> getSimilarMovies(
     int? id,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#getSimilarMovies, [id]),
-            returnValue:
-                _i4.Future<_i2.Either<_i5.Failure, List<_i8.MovieModel>>>.value(
-                  _FakeEither_0<_i5.Failure, List<_i8.MovieModel>>(
-                    this,
-                    Invocation.method(#getSimilarMovies, [id]),
-                  ),
-                ),
+            returnValue: _i4.Future<
+              _i2.Either<_i5.Failure, List<_i6.MovieEntity>>
+            >.value(
+              _FakeEither_0<_i5.Failure, List<_i6.MovieEntity>>(
+                this,
+                Invocation.method(#getSimilarMovies, [id]),
+              ),
+            ),
           )
-          as _i4.Future<_i2.Either<_i5.Failure, List<_i8.MovieModel>>>);
+          as _i4.Future<_i2.Either<_i5.Failure, List<_i6.MovieEntity>>>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i8.MovieModel>>> searchMovies(
+  _i4.Future<_i2.Either<_i5.Failure, List<_i6.MovieEntity>>> searchMovies(
     String? movie,
   ) =>
       (super.noSuchMethod(
             Invocation.method(#searchMovies, [movie]),
-            returnValue:
-                _i4.Future<_i2.Either<_i5.Failure, List<_i8.MovieModel>>>.value(
-                  _FakeEither_0<_i5.Failure, List<_i8.MovieModel>>(
-                    this,
-                    Invocation.method(#searchMovies, [movie]),
-                  ),
-                ),
+            returnValue: _i4.Future<
+              _i2.Either<_i5.Failure, List<_i6.MovieEntity>>
+            >.value(
+              _FakeEither_0<_i5.Failure, List<_i6.MovieEntity>>(
+                this,
+                Invocation.method(#searchMovies, [movie]),
+              ),
+            ),
           )
-          as _i4.Future<_i2.Either<_i5.Failure, List<_i8.MovieModel>>>);
+          as _i4.Future<_i2.Either<_i5.Failure, List<_i6.MovieEntity>>>);
 }

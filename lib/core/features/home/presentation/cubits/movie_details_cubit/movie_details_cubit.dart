@@ -10,16 +10,12 @@ import 'package:movies/core/features/home/presentation/cubits/movie_details_cubi
 
 
 class MovieDetailsCubit extends Cubit<MovieDetailsState> {
-  MovieDetailsCubit() : super(MovieDetailsInitial());
+  MovieDetailsCubit(this.movieDetailsUseCase) : super(MovieDetailsInitial());
+  final MovieDetailsUseCase movieDetailsUseCase;
   getMovieDetails(int id) async {
+    emit(MovieDetailsLoading());
     final res =
-        await MovieDetailsUseCase(
-          movieRepo: MovieRepoImp(
-            movieRemoteDataSource: MovieRemoteDataSourceImp(
-              api: DioConcumer(dio: Dio()),
-            ),
-          ),
-        ).call(id);
+        await movieDetailsUseCase.call(id);
     res.fold(
       (failure) => emit(MovieDetailsFailure(failure.errorMessage)),
       (movie) => emit(MovieDetailsLoadingSuccess(movie)),

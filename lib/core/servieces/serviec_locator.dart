@@ -6,6 +6,8 @@ import 'package:movies/core/database/api/dio_concumer.dart';
 import 'package:movies/core/features/home/data/data_source/remote_data_source/movie_remote_data_source.dart';
 import 'package:movies/core/features/home/data/repo/movie_repo_imp.dart';
 import 'package:movies/core/features/home/domain/repo/movie_repo.dart';
+import 'package:movies/core/features/home/domain/use_case/get_similar_movies.dart';
+import 'package:movies/core/features/home/domain/use_case/movie_details_use_case.dart';
 import 'package:movies/core/features/home/domain/use_case/now_playing_use_case.dart';
 import 'package:movies/core/features/home/domain/use_case/popular_movie_usecase.dart';
 import 'package:movies/core/features/home/domain/use_case/search_movie_use_case.dart';
@@ -34,6 +36,8 @@ void setupServicesLocator(){
 sl.registerLazySingleton(()=>NowPlayingUseCase(movieRepo: sl()));
 sl.registerLazySingleton(()=>PopularMovieUsecase(movieRepo: sl()));
 sl.registerLazySingleton(()=>TopRatedUseCase(movieRepo: sl()));
+sl.registerLazySingleton(()=>MovieDetailsUseCase(movieRepo: sl()));
+sl.registerLazySingleton(()=>GetSimilarMoviesUseCase(movieRepo: sl()));
   // Cubit
   // sl.registerFactory(() => PopularMovieCubit(sl()));
   // sl.registerFactory(() => TopRatedMoviesCubit(sl()));

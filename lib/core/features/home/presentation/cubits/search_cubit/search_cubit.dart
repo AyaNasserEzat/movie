@@ -11,6 +11,7 @@ class SearchCubit extends Cubit<SearchState> {
   SearchCubit(this.searchMovieUseCase) : super(SearchInitial());
   final SearchMovieUseCase searchMovieUseCase;
   searh(String q) async {
+    emit(SearchLoading());
     final res =
         await searchMovieUseCase.call(q);
     res.fold(
