@@ -1,44 +1,40 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:movies/core/features/home/domain/entitiy/movie_entity.dart';
-import 'package:movies/core/features/home/presentation/cubits/popular_movie_cubit/popular_movie_cubit.dart';
-import 'package:movies/core/features/home/presentation/cubits/popular_movie_cubit/popular_movie_state.dart';
+import 'package:movies/core/features/home/presentation/cubits/top_rated_cubit/top_rated_cubit.dart';
+import 'package:movies/core/features/home/presentation/cubits/top_rated_cubit/top_rated_state.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/custom_image_container.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/custom_img_skeletonizer.dart';
-import 'package:movies/core/features/home/presentation/views/widgets/popular_list_view.dart';
-import 'popuar_list_view_test.mocks.dart';
+import 'package:movies/core/features/home/presentation/views/widgets/top_rated_list.dart';
 
+import 'top_rated_list_view_test.mocks.dart';
 
-
-@GenerateMocks([PopularMovieCubit])
+@GenerateMocks([TopRatedMovieCubit])
 void main() {
-  late MockPopularMovieCubit mockPopularMovieCubit;
-
+  late MockTopRatedMovieCubit mockTopRatedMovieCubit;
   setUp((){
-mockPopularMovieCubit=MockPopularMovieCubit();
-when(mockPopularMovieCubit.stream).thenAnswer((_)=>Stream.empty());
+    mockTopRatedMovieCubit=MockTopRatedMovieCubit();
+    when(mockTopRatedMovieCubit.stream).thenAnswer((_)=>Stream.empty());
   });
-  // 💡 الويدجت الذي سنختبره
-  Widget makeTestableWidget(Widget child) {
-    return  MaterialApp(
-      home: BlocProvider<PopularMovieCubit>.value(
-        value: mockPopularMovieCubit,
-        child: child,
-      ),
-    );
+   mackWidget(){
+return MaterialApp(
+  home: BlocProvider<TopRatedMovieCubit>(
+    create: (context) => mockTopRatedMovieCubit,
+    child: TopRatedList()),
+);
   }
-  group("popular movie list view", (){
-testWidgets("show return skeletonizer loading", (tester)async{
-when(mockPopularMovieCubit.state).thenReturn(PopularMovieLoading());
-await tester.pumpWidget(makeTestableWidget(PopularListView()));
+  group("test top rated list view", (){
+testWidgets("should return skeletonizer when loading", (tester)async{
+when(mockTopRatedMovieCubit.state).thenReturn(TopRatedMovieLoading());
+await tester.pumpWidget(mackWidget());
 expect(find.byType(ListviewSkeltonizer), findsOneWidget);
-
 });
-    // ✅ الحالة 2: Success
+
+
+
     testWidgets("shows movie list when success", (tester) async {
       final tMovies = [
         MovieEntity(
@@ -53,10 +49,10 @@ expect(find.byType(ListviewSkeltonizer), findsOneWidget);
         ),
       ];
 
-      when(mockPopularMovieCubit.state)
-          .thenReturn(PopularMovieSuccess(tMovies));
+      when(mockTopRatedMovieCubit.state)
+          .thenReturn(TopRatedMovieSuccess(tMovies));
 
-      await tester.pumpWidget(makeTestableWidget(const PopularListView()));
+      await tester.pumpWidget(mackWidget());
 final imageFinder = find.byWidgetPredicate(
   (widget) =>
       widget is CustomImageContainer &&
@@ -72,14 +68,13 @@ expect(imageFinder, findsOneWidget);
     });
    // ❌ الحالة 3: Failure
     testWidgets("shows error message when failure", (tester) async {
-      when(mockPopularMovieCubit.state)
-          .thenReturn(PopularMovieFailure("Something went wrong"));
+      when(mockTopRatedMovieCubit.state)
+          .thenReturn(TopRatedMovieFailure("Something went wrong"));
 
-      await tester.pumpWidget(makeTestableWidget(const PopularListView()));
+      await tester.pumpWidget(mackWidget());
 
       expect(find.text("Something went wrong"), findsOneWidget);
     });
 
   });
-  
 }

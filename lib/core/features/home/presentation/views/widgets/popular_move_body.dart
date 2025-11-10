@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies/core/features/home/domain/entitiy/movie_entity.dart';
+
 import 'package:movies/core/features/home/presentation/cubits/popular_movie_cubit/popular_movie_cubit.dart';
 import 'package:movies/core/features/home/presentation/cubits/popular_movie_cubit/popular_movie_state.dart';
-import 'package:movies/core/features/home/presentation/views/widgets/film_item_comtainer_skeletonizer.dart';
-import 'package:movies/core/features/home/presentation/views/widgets/film_item_container.dart';
+
 import 'package:movies/core/features/home/presentation/views/widgets/list_view_loading.dart';
 import 'package:movies/core/features/home/presentation/views/widgets/success_list_view.dart';
 

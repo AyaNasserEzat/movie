@@ -13,7 +13,7 @@ final String imgUrl;
   
          CachedNetworkImage(
                       imageUrl:
-                          "https://image.tmdb.org/t/p/w500${imgUrl}",
+                          "https://image.tmdb.org/t/p/w500$imgUrl",
                       width: double.infinity,
                       height: 360,
                       fit: BoxFit.cover,

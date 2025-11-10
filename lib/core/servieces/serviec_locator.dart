@@ -9,6 +9,7 @@ import 'package:movies/core/features/home/domain/repo/movie_repo.dart';
 import 'package:movies/core/features/home/domain/use_case/now_playing_use_case.dart';
 import 'package:movies/core/features/home/domain/use_case/popular_movie_usecase.dart';
 import 'package:movies/core/features/home/domain/use_case/search_movie_use_case.dart';
+import 'package:movies/core/features/home/domain/use_case/top_rated_use_case.dart';
 
 final sl=GetIt.instance;
 void setupServicesLocator(){
@@ -32,6 +33,7 @@ void setupServicesLocator(){
     sl.registerLazySingleton(() =>SearchMovieUseCase(movieRepo: sl()));
 sl.registerLazySingleton(()=>NowPlayingUseCase(movieRepo: sl()));
 sl.registerLazySingleton(()=>PopularMovieUsecase(movieRepo: sl()));
+sl.registerLazySingleton(()=>TopRatedUseCase(movieRepo: sl()));
   // Cubit
   // sl.registerFactory(() => PopularMovieCubit(sl()));
   // sl.registerFactory(() => TopRatedMoviesCubit(sl()));

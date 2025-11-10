@@ -53,7 +53,7 @@ late MockNowPlayingUseCase mockUseCase;
     );
   }
 
-  testWidgets("'FilmImage shows Skeletonizer and placeholders when state is Loading", (tester)async{
+  testWidgets("'FilmImage shows Skeletonizer when state is Loading", (tester)async{
     when(mockCubit.state).thenReturn(NowPlayingMovieLoading());
 
     await tester.pumpWidget(makeTestableWidget(const FilmImage()));
