@@ -75,6 +75,12 @@ expect(imageFinder, findsOneWidget);
 
       expect(find.text("Something went wrong"), findsOneWidget);
     });
+testWidgets("shows default error text when state is unknown", (tester) async {
+  when(mockTopRatedMovieCubit.state).thenReturn(TopRatedMovieInitial()); // لو عندك الحالة دي
 
+  await tester.pumpWidget(mackWidget());
+
+  expect(find.text("error"), findsOneWidget);
+});
   });
 }

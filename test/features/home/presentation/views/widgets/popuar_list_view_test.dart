@@ -79,7 +79,13 @@ expect(imageFinder, findsOneWidget);
 
       expect(find.text("Something went wrong"), findsOneWidget);
     });
+testWidgets("shows default error text when state is unknown", (tester) async {
+  when(mockPopularMovieCubit.state).thenReturn(PopularMovieInitial()); // لو عندك الحالة دي
 
+  await tester.pumpWidget(makeTestableWidget(const PopularListView()));
+
+  expect(find.text("error"), findsOneWidget);
+});
   });
   
 }
