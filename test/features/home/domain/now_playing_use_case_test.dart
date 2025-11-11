@@ -10,7 +10,7 @@ import 'package:movies/core/features/home/domain/use_case/now_playing_use_case.d
 @GenerateMocks([MovieRepo])
 import "now_playing_use_case_test.mocks.dart";
 void main() {
-  late MovieRepo movieRepo;
+  late MockMovieRepo movieRepo;
   late NowPlayingUseCase nowPlayingUseCase;
   setUp((){
     movieRepo=MockMovieRepo();
