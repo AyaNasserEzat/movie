@@ -2,7 +2,7 @@
 [![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/AyaNasserEzat/movie)
 
 A feature-rich movie browsing application built with Flutter. It leverages The Movie DB (TMDB) API to provide users with up-to-date information on popular, top-rated, and now-playing films.
-
+## 📱 Screenshots
 ## ✨ Features
 - **Home Dashboard:** Displays "Now Playing" movies in a dynamic carousel, along with horizontally scrollable lists for "Popular" and "Top Rated" categories.
 - **Detailed Movie View:** Tap on any movie to see comprehensive details, including the poster, backdrop, synopsis, user rating, genres, runtime, and release date.
