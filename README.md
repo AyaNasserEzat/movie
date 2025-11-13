@@ -3,6 +3,12 @@
 
 A feature-rich movie browsing application built with Flutter. It leverages The Movie DB (TMDB) API to provide users with up-to-date information on popular, top-rated, and now-playing films.
 ## 📱 Screenshots
+<p align="center">
+  <img src="[assets/screenshots/home_screen.png](https://github.com/AyaNasserEzat/movie/blob/f91329133dd35466a780bf6aad2e4b721f94f3c8/WhatsApp%20Image%202025-11-12%20at%208.22.17%20PM%20(2).jpeg)" width="30%">
+  <img src="[assets/screenshots/movie_details.png](https://github.com/AyaNasserEzat/movie/blob/f91329133dd35466a780bf6aad2e4b721f94f3c8/WhatsApp%20Image%202025-11-12%20at%208.22.17%20PM%20(1).jpeg)" width="30%">
+  <img src="[assets/screenshots/search_screen.png](https://github.com/AyaNasserEzat/movie/blob/f91329133dd35466a780bf6aad2e4b721f94f3c8/WhatsApp%20Image%202025-11-12%20at%208.22.17%20PM%20(3).jpeg)" width="30%">
+</p>
+
 ## ✨ Features
 - **Home Dashboard:** Displays "Now Playing" movies in a dynamic carousel, along with horizontally scrollable lists for "Popular" and "Top Rated" categories.
 - **Detailed Movie View:** Tap on any movie to see comprehensive details, including the poster, backdrop, synopsis, user rating, genres, runtime, and release date.
